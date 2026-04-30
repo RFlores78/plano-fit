@@ -19,16 +19,24 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
+
+/* NAV */
 .nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; z-index: 100; }
 .nav-btn { flex: 1; padding: 10px 4px 14px; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: var(--muted); cursor: pointer; border: none; background: none; transition: color .2s; }
 .nav-btn.active { color: var(--accent); }
 .nav-btn svg { width: 22px; height: 22px; }
+
+/* PAGES */
 .page { display: none; padding: 16px 16px 80px; min-height: 100vh; }
 .page.active { display: block; }
 .page-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; }
 .page-title span { color: var(--accent); }
+
+/* CARDS */
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
 .card-title { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+/* TREINO */
 .treino-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 .treino-tab { padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border); font-size: 13px; cursor: pointer; background: var(--surface); color: var(--muted); transition: all .2s; }
 .treino-tab.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 700; }
@@ -36,27 +44,35 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-
 .exercicio:last-child { border-bottom: none; }
 .ex-nome { font-size: 14px; }
 .ex-series { font-size: 13px; color: var(--accent); font-weight: 600; }
-.diet-tabs { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
-.diet-tab { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); font-size: 12px; cursor: pointer; background: var(--surface); color: var(--muted); white-space: nowrap; transition: all .2s; }
-.diet-tab.active { background: var(--accent2); color: #000; border-color: var(--accent2); font-weight: 700; }
+
+/* DIETA */
 .refeicao { margin-bottom: 12px; }
 .ref-hora { font-size: 11px; color: var(--accent2); font-weight: 700; margin-bottom: 4px; }
 .ref-desc { font-size: 14px; line-height: 1.5; }
 .ref-kcal { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.diet-tabs { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
+.diet-tab { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); font-size: 12px; cursor: pointer; background: var(--surface); color: var(--muted); white-space: nowrap; transition: all .2s; }
+.diet-tab.active { background: var(--accent2); color: #000; border-color: var(--accent2); font-weight: 700; }
+
+/* ÁGUA */
 .agua-meta { text-align: center; padding: 20px; }
 .agua-num { font-size: 56px; font-weight: 900; color: var(--accent); line-height: 1; }
 .agua-sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
 .agua-progress { background: var(--surface2); border-radius: 20px; height: 16px; margin: 20px 0; overflow: hidden; }
 .agua-fill { background: linear-gradient(90deg, var(--accent2), var(--accent)); height: 100%; border-radius: 20px; transition: width .5s; }
+.agua-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .agua-btn { padding: 12px 20px; border-radius: 12px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; transition: transform .1s; }
-.agua-btn:active { transform: scale(.95); }
 .btn-add { background: var(--accent2); color: #000; }
+.btn-remove { background: var(--surface2); color: var(--text); }
 .btn-reset { background: var(--danger); color: #fff; }
+
+/* EVOLUÇÃO */
 .bio-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .bio-field { display: flex; flex-direction: column; gap: 4px; }
 .bio-field label { font-size: 11px; color: var(--muted); }
 .bio-field input { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; color: var(--text); font-size: 15px; width: 100%; }
 .btn-save { width: 100%; padding: 14px; border-radius: 12px; border: none; background: var(--accent); color: #000; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 12px; }
+.bio-entry { margin-bottom: 12px; }
 .bio-entry-date { font-size: 11px; color: var(--accent2); margin-bottom: 8px; font-weight: 700; }
 .bio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .bio-stat { background: var(--surface2); border-radius: 8px; padding: 10px; text-align: center; }
@@ -65,8 +81,10 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-
 .bio-delta { font-size: 11px; font-weight: 700; margin-top: 2px; }
 .pos { color: var(--success); }
 .neg { color: var(--danger); }
-.chat-wrap { display: flex; flex-direction: column; height: calc(100vh - 60px); }
-.chat-header { padding: 16px; border-bottom: 1px solid var(--border); background: var(--surface); flex-shrink: 0; }
+
+/* CHAT */
+.chat-wrap { display: flex; flex-direction: column; height: calc(100vh - 80px); padding: 0; }
+.chat-header { padding: 16px; border-bottom: 1px solid var(--border); background: var(--surface); }
 .chat-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 .msg { max-width: 85%; display: flex; flex-direction: column; gap: 4px; }
 .msg.user { align-self: flex-end; }
@@ -75,18 +93,12 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-
 .msg.user .msg-bubble { background: var(--accent); color: #000; border-bottom-right-radius: 4px; }
 .msg.bot .msg-bubble { background: var(--surface2); color: var(--text); border-bottom-left-radius: 4px; }
 .msg-time { font-size: 10px; color: var(--muted); }
-.msg.user .msg-time { text-align: right; }
-.chat-input-wrap { padding: 12px 16px 16px; background: var(--surface); border-top: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-end; flex-shrink: 0; }
-.chat-input { flex: 1; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 12px 16px; color: var(--text); font-size: 14px; resize: none; max-height: 120px; outline: none; font-family: inherit; line-height: 1.4; }
+.chat-input-wrap { padding: 12px 16px 16px; background: var(--surface); border-top: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-end; }
+.chat-input { flex: 1; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 12px 16px; color: var(--text); font-size: 14px; resize: none; max-height: 120px; outline: none; font-family: inherit; }
 .chat-send { width: 44px; height: 44px; border-radius: 50%; border: none; background: var(--accent); color: #000; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.chat-send:disabled { background: var(--muted); cursor: not-allowed; }
-.typing span { width: 8px; height: 8px; background: var(--muted); border-radius: 50%; display: inline-block; animation: bounce .8s infinite; margin: 0 2px; }
-.typing span:nth-child(2) { animation-delay: .15s; }
-.typing span:nth-child(3) { animation-delay: .3s; }
-@keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-8px)} }
-.chat-clear { padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border); background: none; color: var(--muted); font-size: 11px; cursor: pointer; }
-.key-setup { padding: 30px 20px; text-align: center; }
-.key-input { width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14px; margin-bottom: 12px; outline: none; }
+
+/* TOGGLE */
+.jiu-toggle { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
 .toggle { position: relative; width: 50px; height: 26px; }
 .toggle input { opacity: 0; width: 0; height: 0; }
 .toggle-slider { position: absolute; inset: 0; background: var(--surface2); border-radius: 26px; cursor: pointer; transition: .3s; border: 1px solid var(--border); }
@@ -101,17 +113,24 @@ input:checked + .toggle-slider:before { transform: translateX(24px); background:
   <div class="page-title">Treino <span>💪</span></div>
   <div class="card">
     <div class="card-title">Hoje foi dia de jiujitsu?</div>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <label class="toggle"><input type="checkbox" id="jiu-check" onchange="onJiuChange()"><span class="toggle-slider"></span></label>
-      <span id="jiu-label" style="font-size:14px;color:var(--muted)">Não</span>
+    <div class="jiu-toggle">
+      <label class="toggle">
+        <input type="checkbox" id="jiu-check" onchange="onJiuChange()">
+        <span class="toggle-slider"></span>
+      </label>
+      <span id="jiu-label" style="font-size:14px; color:var(--muted)">Não</span>
     </div>
   </div>
-  <div class="treino-tabs">
-    <div class="treino-tab active" onclick="selectTreino(this,'regen')">Regenerativo</div>
-    <div class="treino-tab" onclick="selectTreino(this,'A')">A - Peito/Tríceps</div>
-    <div class="treino-tab" onclick="selectTreino(this,'B')">B - Costas/Bíceps</div>
-    <div class="treino-tab" onclick="selectTreino(this,'C')">C - Ombro/Bíceps</div>
-    <div class="treino-tab" onclick="selectTreino(this,'D')">D - Pernas</div>
+  <div class="card" id="regen-aviso" style="display:none; border-color:#1a3a2a;">
+    <div style="color:var(--success); font-weight:700; margin-bottom:6px;">🔄 Treino Regenerativo</div>
+    <div style="font-size:13px; color:#ccc; line-height:1.6;">Você fez jiujitsu ontem. Hoje é dia de recuperação ativa.</div>
+  </div>
+  <div class="treino-tabs" id="treino-tabs">
+    <div class="treino-tab active" onclick="selectTreino('A', this)">A - Peito/Tríceps</div>
+    <div class="treino-tab" onclick="selectTreino('B', this)">B - Costas/Bíceps</div>
+    <div class="treino-tab" onclick="selectTreino('C', this)">C - Ombro/Bíceps</div>
+    <div class="treino-tab" onclick="selectTreino('D', this)">D - Pernas</div>
+    <div class="treino-tab" onclick="selectTreino('regen', this)">Regenerativo</div>
   </div>
   <div class="card" id="treino-content"></div>
 </div>
@@ -119,9 +138,9 @@ input:checked + .toggle-slider:before { transform: translateX(24px); background:
 <div class="page" id="page-dieta">
   <div class="page-title">Dieta <span>🥗</span></div>
   <div class="diet-tabs">
-    <div class="diet-tab active" onclick="selectDieta(this,'academia')">Academia (Jejum)</div>
-    <div class="diet-tab" onclick="selectDieta(this,'jiujitsu')">Jiujitsu</div>
-    <div class="diet-tab" onclick="selectDieta(this,'regen')">Regenerativo</div>
+    <div class="diet-tab active" onclick="selectDieta('academia', this)">Academia (Jejum)</div>
+    <div class="diet-tab" onclick="selectDieta('jiujitsu', this)">Jiujitsu</div>
+    <div class="diet-tab" onclick="selectDieta('regen', this)">Regenerativo</div>
   </div>
   <div id="dieta-content"></div>
 </div>
@@ -133,16 +152,19 @@ input:checked + .toggle-slider:before { transform: translateX(24px); background:
       <div class="agua-num" id="agua-copos">0</div>
       <div class="agua-sub">copos de 250ml</div>
     </div>
-    <div class="agua-progress"><div class="agua-fill" id="agua-fill" style="width:0%"></div></div>
-    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:16px;">
-      <span id="agua-litros">0L</span><span>Meta: 4L (16 copos)</span>
+    <div class="agua-progress">
+      <div class="agua-fill" id="agua-fill" style="width:0%"></div>
     </div>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <button class="agua-btn btn-reset" onclick="agua(-1)">-1 copo</button>
+    <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:16px;">
+      <span id="agua-litros">0L</span>
+      <span id="agua-meta-label">Meta: 4L (16 copos)</span>
+    </div>
+    <div class="agua-btns">
+      <button class="agua-btn btn-remove" onclick="agua(-1)">-1</button>
       <button class="agua-btn btn-add" onclick="agua(1)">+1 copo</button>
-      <button class="agua-btn btn-add" style="background:var(--accent);color:#000;" onclick="agua(2)">+2 copos</button>
+      <button class="agua-btn btn-add" onclick="agua(2)" style="background:var(--accent);">+2 copos</button>
     </div>
-    <button class="agua-btn btn-reset" style="width:100%;margin-top:12px;" onclick="aguaReset()">Zerar</button>
+    <button class="agua-btn btn-reset" style="width:100%; margin-top:12px;" onclick="aguaReset()">Zerar</button>
   </div>
 </div>
 
@@ -151,12 +173,12 @@ input:checked + .toggle-slider:before { transform: translateX(24px); background:
   <div class="card">
     <div class="card-title">Registrar balança</div>
     <div class="bio-form">
-      <div class="bio-field"><label>Peso (kg)</label><input type="number" id="b-peso" step="0.1" placeholder="0.0"></div>
-      <div class="bio-field"><label>% Gordura</label><input type="number" id="b-gord" step="0.1" placeholder="0.0"></div>
-      <div class="bio-field"><label>% Músculo</label><input type="number" id="b-musc" step="0.1" placeholder="0.0"></div>
-      <div class="bio-field"><label>% Água</label><input type="number" id="b-agua" step="0.1" placeholder="0.0"></div>
-      <div class="bio-field"><label>IMC</label><input type="number" id="b-imc" step="0.1" placeholder="0.0"></div>
-      <div class="bio-field"><label>Gordura Visceral</label><input type="number" id="b-visc" step="0.1" placeholder="0"></div>
+      <div class="bio-field"><label>Peso (kg)</label><input type="number" id="b-peso" step="0.1"></div>
+      <div class="bio-field"><label>% Gordura</label><input type="number" id="b-gord" step="0.1"></div>
+      <div class="bio-field"><label>% Músculo</label><input type="number" id="b-musc" step="0.1"></div>
+      <div class="bio-field"><label>% Água</label><input type="number" id="b-agua" step="0.1"></div>
+      <div class="bio-field"><label>IMC</label><input type="number" id="b-imc" step="0.1"></div>
+      <div class="bio-field"><label>Gord. Visc.</label><input type="number" id="b-visc" step="0.1"></div>
     </div>
     <button class="btn-save" onclick="saveBio()">Salvar medição</button>
   </div>
@@ -165,322 +187,106 @@ input:checked + .toggle-slider:before { transform: translateX(24px); background:
 
 <div class="page" id="page-chat" style="padding:0;">
   <div class="chat-wrap">
-    <div class="chat-header">
-      <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div><div style="font-size:18px;font-weight:700;">🤖 Personal IA</div><div style="font-size:12px;color:var(--muted);">Histórico salvo na sessão</div></div>
-        <div style="display:flex;gap:8px;">
-          <button class="chat-clear" onclick="chatClear()">Limpar</button>
-          <button class="chat-clear" onclick="clearKey()" style="color:var(--danger);border-color:var(--danger);">Trocar chave</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="key-setup" class="key-setup" style="display:none;">
-      <div style="font-size:48px;margin-bottom:16px;">🔑</div>
-      <div style="font-size:18px;font-weight:700;margin-bottom:8px;">Configure sua chave OpenAI</div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;">Acesse platform.openai.com/api-keys, crie uma chave nova e cole abaixo. Fica salva só no seu celular.</div>
-      <input class="key-input" id="key-input" type="password" placeholder="sk-proj-...">
-      <button class="btn-save" onclick="saveKey()">Salvar e continuar</button>
-    </div>
-
     <div class="chat-messages" id="chat-messages">
-      <div class="msg bot">
-        <div class="msg-bubble">Oi Rodrigo! 👋 Sou seu personal trainer virtual. Pode me perguntar sobre treino, dieta, hidratação ou qualquer dúvida do seu plano. O que precisa?</div>
-        <div class="msg-time">agora</div>
-      </div>
+        <div class="msg bot"><div class="msg-bubble">Oi Rodrigo! 💪 Como posso te ajudar hoje?</div></div>
     </div>
-
-    <div class="chat-input-wrap" id="chat-input-wrap">
-      <textarea class="chat-input" id="chat-input" placeholder="Digite sua pergunta..." rows="1" onkeydown="chatKeydown(event)" oninput="autoResize(this)"></textarea>
-      <button class="chat-send" id="chat-send" onclick="chatSend()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-      </button>
+    <div class="chat-input-wrap">
+      <textarea class="chat-input" id="chat-input" placeholder="Digite sua dúvida..." rows="1"></textarea>
+      <button class="chat-send" onclick="chatSend()">🚀</button>
     </div>
   </div>
 </div>
 
 <nav class="nav">
-  <button class="nav-btn active" onclick="showPage('treino',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M6.5 7h11M6.5 12h11M6.5 17h11"/></svg>Treino
-  </button>
-  <button class="nav-btn" onclick="showPage('dieta',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Dieta
-  </button>
-  <button class="nav-btn" onclick="showPage('agua',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6 8 4 13 4 16a8 8 0 0 0 16 0c0-3-2-8-8-14z"/></svg>Água
-  </button>
-  <button class="nav-btn" onclick="showPage('evolucao',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Evolução
-  </button>
-  <button class="nav-btn" onclick="showPage('chat',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>IA Chat
-  </button>
+  <button class="nav-btn active" onclick="showPage('treino')">Treino</button>
+  <button class="nav-btn" onclick="showPage('dieta')">Dieta</button>
+  <button class="nav-btn" onclick="showPage('agua')">Água</button>
+  <button class="nav-btn" onclick="showPage('evolucao')">Evolução</button>
+  <button class="nav-btn" onclick="showPage('chat')">IA Chat</button>
 </nav>
 
 <script>
-var SYSTEM_PROMPT = "Voce e o personal trainer e nutricionista virtual do Rodrigo. Responda sempre em portugues, de forma direta e pratica, como um personal trainer experiente. PERFIL DO RODRIGO: Peso acima de 100kg. Nivel academia iniciante menos de 6 meses. Objetivo saude e condicionamento geral. Pratica jiujitsu em dias variaveis as 20h. Trabalha das 8h as 18h30. HORARIOS FIXOS: 05:00 Academia em JEJUM TOTAL nao come nada antes. 05:20 Eliptico 20min. 05:20 a 06:00 Musculacao 40min. 06:10 Cafe da manha PRIMEIRA refeicao do dia. REGRA IMPORTANTE: Nunca sugira comer antes das 5h. REGRA REGENERATIVO: Dia apos jiujitsu treino e regenerativo eliptico leve 20min mobilidade forca leve. TREINO A Peito e Triceps: Supino reto halteres 4x8-10. Supino inclinado halteres 4x12-15. Crucifixo halteres 3x12. Crucifixo inclinado 4x15. Triceps testa 4x8-10. Triceps frances 4x8-12. Triceps coice 4x12. TREINO B Costas e Biceps: Remada unilateral 3x15. Remada fechada 4x8-10. Remada curvada 4x15. Pullover 3x15. Puxada frontal 3x12. Rosca direta 3x15. Rosca martelo 4x8-10. Rosca alternada 4x15. Rosca concentrada 3x8-12. Rosca 21 3x21. TREINO C Ombro e Biceps: Desenvolvimento sentado 4x8. Elevacao lateral 3x8-12. Desenvolvimento halteres 3x15. Elevacao frontal 3x12. Encolhimento 3x15. Rosca alternada 4x15. Rosca martelo 4x8-10. Rosca concentrada 3x12. TREINO D Pernas: Leg press 45 4x8-10. Leg press pes afastados 4x8-10. Extensora 3x15. Extensora isometrica 5x20seg. Flexora deitada 3x8-10. Mesa flexora 3x8-10. Stiff halteres 3x12. Abdutora 3x15. Panturrilha leg press 4x15. Panturrilha maquina 3x20. Prancha canoa 3x30-40seg. TREINO REGENERATIVO: Eliptico leve 20min. Alongamento ombros 3x30seg. Alongamento quadril 3x30seg. Prancha 3x30seg. Remada leve 2x15. Desenvolvimento leve 2x15. Rosca leve 2x15. DIETA ACADEMIA JEJUM: 06:10 3 ovos 2 fatias pao integral fruta cafe gelado limao 520kcal. 10:00 2 ovos fruta 220kcal. 12:30 Frango 200g arroz integral 150g salada 700kcal. 15:30 Carne moida 100g 1 ovo fruta 300kcal. 19:30 Frango ou carne 200g arroz 150g salada 680kcal. Total 2800kcal 165g proteina. DIETA JIUJITSU: 07:00 cafe manha normal. 18:00 PRE-JIU CRITICO frango 150g arroz branco 80g SEM fibras SEM gordura. 22:00 pos-jiu carne moida 200g 2 ovos arroz 100g. DIETA REGENERATIVO: normal porcoes menores jantar leve. HIDRATACAO: 4 litros dia. Jiujitsu 4.5 litros. PREFERENCIAS: GOSTA frango carne moida ovo alface tomate pao integral abacaxi melancia uva cafe gelado limao. NAO GOSTA NUNCA cebola pepino beterraba legumes. REGRAS: 1 Portugues sempre. 2 Direto pratico maximo 3 sugestoes. 3 Nunca comer antes 5h. 4 Nunca alimentos que nao gosta. 5 Dia apos jiujitsu regenerativo. 6 Sem culpa se pular treino. 7 Comemore evolucoes.";
-
-var S = JSON.parse(localStorage.getItem('fitapp') || '{}');
-S.agua = S.agua || 0;
-S.bio = S.bio || [];
-var chatHistory = [];
-
-// NAV
-function showPage(name, btn) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
-  document.getElementById('page-' + name).classList.add('active');
-  if (btn) btn.classList.add('active');
-  if (name === 'chat') { checkKey(); setTimeout(scrollChat, 100); }
-}
-
-// TREINO
-var TREINOS = {
-  regen: [{n:'Elíptico leve',s:'20min'},{n:'Alongamento ombros',s:'3x30seg'},{n:'Alongamento quadril',s:'3x30seg'},{n:'Prancha isométrica',s:'3x30seg'},{n:'Remada leve',s:'2x15'},{n:'Desenvolvimento leve',s:'2x15'},{n:'Rosca leve',s:'2x15'}],
-  A: [{n:'Supino reto com halteres',s:'4x8-10'},{n:'Supino inclinado com halteres',s:'4x12-15'},{n:'Crucifixo com halteres',s:'3x12'},{n:'Crucifixo inclinado',s:'4x15'},{n:'Tríceps testa com halteres',s:'4x8-10'},{n:'Tríceps francês com halteres',s:'4x8-12'},{n:'Tríceps coice no banco',s:'4x12'}],
-  B: [{n:'Remada unilateral com halter',s:'3x15'},{n:'Remada fechada banco inclinado',s:'4x8-10'},{n:'Remada curvada com halteres',s:'4x15'},{n:'Pullover com halter',s:'3x15'},{n:'Puxada frontal máquina',s:'3x12'},{n:'Rosca direta com halteres',s:'3x15'},{n:'Rosca martelo',s:'4x8-10'},{n:'Rosca alternada',s:'4x15'},{n:'Rosca concentrada',s:'3x8-12'},{n:'Rosca 21 com halteres',s:'3x21'}],
-  C: [{n:'Desenvolvimento sentado pegada neutra',s:'4x8'},{n:'Elevação lateral com halteres',s:'3x8-12'},{n:'Desenvolvimento com halteres',s:'3x15'},{n:'Elevação frontal',s:'3x12'},{n:'Encolhimento trapézio',s:'3x15'},{n:'Rosca alternada',s:'4x15'},{n:'Rosca martelo',s:'4x8-10'},{n:'Rosca concentrada',s:'3x12'}],
-  D: [{n:'Leg press 45°',s:'4x8-10'},{n:'Leg press pés afastados',s:'4x8-10'},{n:'Extensora',s:'3x15'},{n:'Extensora isométrica',s:'5x20seg'},{n:'Flexora deitada',s:'3x8-10'},{n:'Mesa flexora sentada',s:'3x8-10'},{n:'Stiff com halteres',s:'3x12'},{n:'Abdutora',s:'3x15'},{n:'Panturrilha leg press',s:'4x15'},{n:'Panturrilha máquina',s:'3x20'},{n:'Prancha canoa',s:'3x30-40seg'}]
+// CONFIG & DATA
+const TREINOS = {
+  A: [{n:'Supino Reto', s:'4x8-10'}, {n:'Supino Inclinado', s:'4x12-15'}, {n:'Crucifixo', s:'3x12'}, {n:'Tríceps Testa', s:'4x8-10'}, {n:'Tríceps Francês', s:'4x8-12'}],
+  B: [{n:'Remada Unilateral', s:'3x15'}, {n:'Puxada Frontal', s:'3x12'}, {n:'Rosca Direta', s:'3x15'}, {n:'Rosca Martelo', s:'4x8-10'}],
+  C: [{n:'Desenvolvimento', s:'4x8'}, {n:'Elevação Lateral', s:'3x8-12'}, {n:'Rosca Alternada', s:'4x15'}],
+  D: [{n:'Leg Press 45', s:'4x8-10'}, {n:'Extensora', s:'3x15'}, {n:'Flexora', s:'3x8-10'}, {n:'Panturrilha', s:'4x15'}],
+  regen: [{n:'Elíptico leve', s:'20min'}, {n:'Alongamento', s:'15min'}, {n:'Prancha', s:'3x30s'}]
 };
 
-function selectTreino(el, t) {
-  document.querySelectorAll('.treino-tab').forEach(function(x) { x.classList.remove('active'); });
+const DIETAS = {
+  academia: [{h:'06:10', d:'Café: 3 ovos, 2 pães integrais, fruta, café gelado'}, {h:'12:30', d:'Almoço: 200g Frango, 150g Arroz Integral, Salada'}],
+  jiujitsu: [{h:'18:00', d:'Pré-Jiu (Leve): 150g Frango, 80g Arroz Branco'}, {h:'22:00', d:'Pós-Jiu: 200g Carne, 2 ovos, 100g Arroz'}],
+  regen: [{h:'06:10', d:'Café completo'}, {h:'19:30', d:'Jantar leve: Frango e salada'}]
+};
+
+let S = JSON.parse(localStorage.getItem('fitapp') || '{"agua":0, "bio":[], "jiuHoje":false}');
+
+function save() { localStorage.setItem('fitapp', JSON.stringify(S)); }
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event?.currentTarget?.classList.add('active');
+}
+
+function selectTreino(t, el) {
+  document.querySelectorAll('.treino-tab').forEach(tab => tab.classList.remove('active'));
   el.classList.add('active');
-  document.getElementById('treino-content').innerHTML = TREINOS[t].map(function(e) {
-    return '<div class="exercicio"><span class="ex-nome">' + e.n + '</span><span class="ex-series">' + e.s + '</span></div>';
-  }).join('');
+  const content = TREINOS[t].map(e => `<div class="exercicio"><span>${e.n}</span><span class="ex-series">${e.s}</span></div>`).join('');
+  document.getElementById('treino-content').innerHTML = content;
+}
+
+function selectDieta(d, el) {
+  document.querySelectorAll('.diet-tab').forEach(tab => tab.classList.remove('active'));
+  el.classList.add('active');
+  const content = DIETAS[d].map(r => `<div class="card"><div class="ref-hora">${r.h}</div><div>${r.d}</div></div>`).join('');
+  document.getElementById('dieta-content').innerHTML = content;
+}
+
+function agua(n) {
+  S.agua = Math.max(0, S.agua + n);
+  renderAgua();
+  save();
+}
+
+function aguaReset() { S.agua = 0; renderAgua(); save(); }
+
+function renderAgua() {
+  document.getElementById('agua-copos').innerText = S.agua;
+  document.getElementById('agua-fill').style.width = Math.min((S.agua/16)*100, 100) + '%';
+  document.getElementById('agua-litros').innerText = (S.agua * 0.25).toFixed(2) + 'L';
 }
 
 function onJiuChange() {
-  var checked = document.getElementById('jiu-check').checked;
-  var label = document.getElementById('jiu-label');
-  label.textContent = checked ? 'Sim! 🥋' : 'Não';
-  label.style.color = checked ? 'var(--success)' : 'var(--muted)';
+  S.jiuHoje = document.getElementById('jiu-check').checked;
+  document.getElementById('jiu-label').innerText = S.jiuHoje ? 'Sim! 🥋' : 'Não';
+  save();
 }
 
-// init treino
-document.getElementById('treino-content').innerHTML = TREINOS.regen.map(function(e) {
-  return '<div class="exercicio"><span class="ex-nome">' + e.n + '</span><span class="ex-series">' + e.s + '</span></div>';
-}).join('');
-
-// DIETA
-var DIETAS = {
-  academia: [
-    {h:'05:00',d:'⏰ Academia em jejum total — sem comer nada antes',k:''},
-    {h:'06:10',d:'☕ Café da manhã: 3 ovos, 2 fatias pão integral, fruta, café gelado com limão',k:'520kcal · 35g proteína'},
-    {h:'10:00',d:'🥚 Lanche: 2 ovos cozidos + fruta',k:'220kcal · 16g proteína'},
-    {h:'12:30',d:'🍗 Almoço: Frango grelhado 200g, arroz integral 150g, alface, tomate, azeite',k:'700kcal · 60g proteína'},
-    {h:'15:30',d:'🥩 Lanche: Carne moída 100g, 1 ovo, fruta',k:'300kcal · 24g proteína'},
-    {h:'19:30',d:'🍽️ Jantar: Frango ou carne moída 200g, arroz integral 150g, salada',k:'680kcal · 58g proteína'},
-    {h:'Total',d:'Meta do dia',k:'2800kcal · 165g proteína'}
-  ],
-  jiujitsu: [
-    {h:'07:00',d:'☕ Café da manhã: 3 ovos, pão integral, fruta, café gelado',k:''},
-    {h:'10:00',d:'🥚 Lanche: 2 ovos + fruta',k:''},
-    {h:'12:30',d:'🍗 Almoço: Frango 200g, arroz, salada',k:''},
-    {h:'15:30',d:'🥩 Lanche: Carne moída 100g, 2 ovos, fruta',k:''},
-    {h:'18:00',d:'⚡ Pré-jiujitsu LEVE (crítico): Frango 150g, arroz branco 80g — SEM fibras, SEM gordura',k:'Não comer pesado! Treina às 20h'},
-    {h:'22:00',d:'🌙 Pós-jiujitsu: Carne moída 200g, 2 ovos, arroz 100g, 500ml água',k:''},
-    {h:'Água',d:'💧 Meta aumentada no dia de jiujitsu',k:'4,5 litros (18 copos)'}
-  ],
-  regen: [
-    {h:'06:10',d:'☕ Café da manhã: 3 ovos, pão integral, fruta, café gelado, 500ml água',k:''},
-    {h:'10:00',d:'🥚 Lanche: 2 ovos + fruta',k:''},
-    {h:'12:30',d:'🍗 Almoço (capricha na proteína): Frango ou carne 200g, arroz, salada',k:''},
-    {h:'15:30',d:'🥩 Lanche: 2 ovos + fruta',k:''},
-    {h:'19:30',d:'🌙 Jantar leve: Frango 180g, arroz 120g, salada',k:''}
-  ]
-};
-
-function selectDieta(el, d) {
-  document.querySelectorAll('.diet-tab').forEach(function(x) { x.classList.remove('active'); });
-  el.classList.add('active');
-  renderDieta(d);
-}
-
-function renderDieta(d) {
-  document.getElementById('dieta-content').innerHTML = DIETAS[d].map(function(r) {
-    return '<div class="card refeicao"><div class="ref-hora">' + r.h + '</div><div class="ref-desc">' + r.d + '</div>' + (r.k ? '<div class="ref-kcal">' + r.k + '</div>' : '') + '</div>';
-  }).join('');
-}
-renderDieta('academia');
-
-// ÁGUA
-function agua(n) {
-  S.agua = Math.max(0, (S.agua || 0) + n);
-  save(); renderAgua();
-}
-function aguaReset() { S.agua = 0; save(); renderAgua(); }
-function renderAgua() {
-  var c = S.agua || 0;
-  document.getElementById('agua-copos').textContent = c;
-  document.getElementById('agua-fill').style.width = Math.min(c/16*100, 100) + '%';
-  document.getElementById('agua-litros').textContent = (c*0.25).toFixed(2) + 'L';
-}
-renderAgua();
-
-// BIO
 function saveBio() {
-  var entry = {
+  const entry = {
     date: new Date().toLocaleDateString('pt-BR'),
-    peso: parseFloat(document.getElementById('b-peso').value) || null,
-    gord: parseFloat(document.getElementById('b-gord').value) || null,
-    musc: parseFloat(document.getElementById('b-musc').value) || null,
-    agua_corp: parseFloat(document.getElementById('b-agua').value) || null,
-    imc: parseFloat(document.getElementById('b-imc').value) || null,
-    visc: parseFloat(document.getElementById('b-visc').value) || null
+    peso: document.getElementById('b-peso').value
   };
-  if (!entry.peso) { alert('Informe pelo menos o peso.'); return; }
+  if(!entry.peso) return;
   S.bio.unshift(entry);
-  save(); renderBio();
-  ['b-peso','b-gord','b-musc','b-agua','b-imc','b-visc'].forEach(function(id) { document.getElementById(id).value = ''; });
+  renderBio();
+  save();
 }
 
 function renderBio() {
-  var bio = S.bio || [];
-  if (!bio.length) {
-    document.getElementById('bio-historico').innerHTML = '<div class="card" style="color:var(--muted);text-align:center;">Nenhum registro ainda</div>';
-    return;
-  }
-  var campos = [
-    {k:'peso',l:'Peso',fmt:function(v){return v+'kg'},lb:true},
-    {k:'gord',l:'% Gordura',fmt:function(v){return v+'%'},lb:true},
-    {k:'musc',l:'% Músculo',fmt:function(v){return v+'%'},lb:false},
-    {k:'agua_corp',l:'% Água',fmt:function(v){return v+'%'},lb:false},
-    {k:'imc',l:'IMC',fmt:function(v){return v},lb:true},
-    {k:'visc',l:'Gordura Visc.',fmt:function(v){return v},lb:true}
-  ];
-  document.getElementById('bio-historico').innerHTML = bio.map(function(entry, i) {
-    var prev = bio[i+1];
-    var stats = campos.filter(function(c) { return entry[c.k] != null; }).map(function(c) {
-      var val = entry[c.k];
-      var deltaHTML = '';
-      if (prev && prev[c.k] != null) {
-        var d = val - prev[c.k];
-        if (Math.abs(d) > 0.01) {
-          var improved = c.lb ? d < 0 : d > 0;
-          deltaHTML = '<div class="bio-delta ' + (improved?'pos':'neg') + '">' + (d>0?'+':'') + d.toFixed(1) + '</div>';
-        }
-      }
-      return '<div class="bio-stat"><div class="bio-stat-val">' + c.fmt(val) + '</div><div class="bio-stat-label">' + c.l + '</div>' + deltaHTML + '</div>';
-    }).join('');
-    return '<div class="card"><div class="bio-entry-date">📅 ' + entry.date + '</div><div class="bio-grid">' + stats + '</div></div>';
-  }).join('');
+  document.getElementById('bio-historico').innerHTML = S.bio.map(b => `<div class="card"><b>${b.date}</b>: ${b.peso}kg</div>`).join('');
 }
+
+// Init
+selectTreino('A', document.querySelector('.treino-tab'));
+selectDieta('academia', document.querySelector('.diet-tab'));
+renderAgua();
 renderBio();
 
-// CHAT
-function checkKey() {
-  var key = localStorage.getItem('openai_key');
-  var setup = document.getElementById('key-setup');
-  var msgs = document.getElementById('chat-messages');
-  var inputWrap = document.getElementById('chat-input-wrap');
-  if (!key) {
-    setup.style.display = 'block';
-    msgs.style.display = 'none';
-    inputWrap.style.display = 'none';
-  } else {
-    setup.style.display = 'none';
-    msgs.style.display = 'flex';
-    inputWrap.style.display = 'flex';
-  }
-}
-
-function saveKey() {
-  var key = document.getElementById('key-input').value.trim();
-  if (!key.startsWith('sk-')) { alert('Chave inválida. Deve começar com sk-'); return; }
-  localStorage.setItem('openai_key', key);
-  checkKey();
-}
-
-function clearKey() {
-  localStorage.removeItem('openai_key');
-  chatHistory = [];
-  checkKey();
-}
-
-function scrollChat() {
-  var el = document.getElementById('chat-messages');
-  el.scrollTop = el.scrollHeight;
-}
-
-function addMsg(role, text) {
-  var now = new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
-  var wrap = document.getElementById('chat-messages');
-  var div = document.createElement('div');
-  div.className = 'msg ' + role;
-  div.innerHTML = '<div class="msg-bubble">' + text.replace(/\n/g,'<br>') + '</div><div class="msg-time">' + now + '</div>';
-  wrap.appendChild(div);
-  scrollChat();
-}
-
-function addTyping() {
-  var wrap = document.getElementById('chat-messages');
-  var div = document.createElement('div');
-  div.className = 'msg bot';
-  div.id = 'typing-ind';
-  div.innerHTML = '<div class="msg-bubble"><span class="typing"><span></span><span></span><span></span></span></div>';
-  wrap.appendChild(div);
-  scrollChat();
-}
-
-function removeTyping() {
-  var el = document.getElementById('typing-ind');
-  if (el) el.remove();
-}
-
-async function chatSend() {
-  var key = localStorage.getItem('openai_key');
-  if (!key) { checkKey(); return; }
-  var input = document.getElementById('chat-input');
-  var text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-  input.style.height = 'auto';
-  document.getElementById('chat-send').disabled = true;
-  addMsg('user', text);
-  chatHistory.push({role:'user', content:text});
-  addTyping();
-  try {
-    var res = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json','Authorization':'Bearer '+key},
-      body: JSON.stringify({model:'gpt-4o-mini', max_tokens:600, messages:[{role:'system',content:SYSTEM_PROMPT}].concat(chatHistory)})
-    });
-    var data = await res.json();
-    removeTyping();
-    if (data.choices && data.choices[0] && data.choices[0].message) {
-      var reply = data.choices[0].message.content;
-      chatHistory.push({role:'assistant', content:reply});
-      addMsg('bot', reply);
-    } else if (data.error && data.error.code === 'invalid_api_key') {
-      localStorage.removeItem('openai_key');
-      addMsg('bot', 'Chave inválida ou expirada. Toque em "Trocar chave".');
-    } else {
-      addMsg('bot', 'Erro na resposta. Tente novamente.');
-    }
-  } catch(e) {
-    removeTyping();
-    addMsg('bot', 'Sem conexão com a IA. Verifique sua internet.');
-  }
-  document.getElementById('chat-send').disabled = false;
-}
-
-function chatClear() {
-  chatHistory = [];
-  document.getElementById('chat-messages').innerHTML = '<div class="msg bot"><div class="msg-bubble">Conversa reiniciada! O que precisa?</div><div class="msg-time">agora</div></div>';
-}
-
-function chatKeydown(e) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); chatSend(); }
-}
-
-function autoResize(el) {
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
-}
-
-function save() { localStorage.setItem('fitapp', JSON.stringify(S)); }
 </script>
 </body>
 </html>
