@@ -346,190 +346,6 @@ function rndBio() {
     {k:'gord',l:'% Gordura',f:function(v){return v+'%'},lb:true},
     {k:'musc',l:'% Músculo',f:function(v){return v+'%'},lb:false},
     {k:'agua',l:'% Água',f:function(v){return v+'%'},lb:false},
-    {k:'imc uma chave nova e cole abaixo.</div>
-      <input class="ki" id="kinput" type="password" placeholder="sk-proj-...">
-      <button class="sav" onclick="saveKey()">Salvar e continuar</button>
-    </div>
-    <div class="cm" id="cmsg">
-      <div class="msg b"><div class="mb">Oi Rodrigo! 👋 Sou seu personal trainer virtual. O que precisa?</div><div class="mt">agora</div></div>
-    </div>
-    <div class="ciw" id="ciw">
-      <textarea class="ci" id="cinput" placeholder="Digite sua pergunta..." rows="1" onkeydown="ckd(event)" oninput="car(this)"></textarea>
-      <button class="cs" id="csend" onclick="csend()">➤</button>
-    </div>
-  </div>
-</div>
-
-<nav class="nav">
-  <button class="nb on" onclick="shpg('treino',this)">📋 Treino</button>
-  <button class="nb" onclick="shpg('dieta',this)">🥗 Dieta</button>
-  <button class="nb" onclick="shpg('agua',this)">💧 Água</button>
-  <button class="nb" onclick="shpg('evol',this)">📊 Evolução</button>
-  <button class="nb" onclick="shpg('chat',this)">🤖 IA Chat</button>
-</nav>
-
-<script>
-var SP = "Voce e o personal trainer e nutricionista virtual do Rodrigo. Responda em portugues, direto e pratico. PERFIL: Peso acima de 100kg. Iniciante academia menos 6 meses. Jiujitsu dias variaveis 20h. Trabalha 8h-18h30. JEJUM: treina 5h sem comer. Primeira refeicao 6h10. NUNCA sugira comer antes 5h. Dia apos jiujitsu REGENERATIVO. TREINO A Peito Triceps: Supino reto halteres 4x8-10. Supino inclinado 4x12-15. Crucifixo 3x12. Crucifixo inclinado 4x15. Triceps testa 4x8-10. Triceps frances 4x8-12. Triceps coice 4x12. TREINO B Costas Biceps: Remada unilateral 3x15. Remada fechada 4x8-10. Remada curvada 4x15. Pullover 3x15. Puxada frontal 3x12. Rosca direta 3x15. Rosca martelo 4x8-10. Rosca alternada 4x15. Rosca concentrada 3x8-12. Rosca 21 3x21. TREINO C Ombro Biceps: Desenvolvimento sentado 4x8. Elevacao lateral 3x8-12. Desenvolvimento halteres 3x15. Elevacao frontal 3x12. Encolhimento 3x15. Rosca alternada 4x15. Rosca martelo 4x8-10. Rosca concentrada 3x12. TREINO D Pernas: Leg press 45 4x8-10. Leg press afastado 4x8-10. Extensora 3x15. Extensora isometrica 5x20seg. Flexora deitada 3x8-10. Mesa flexora 3x8-10. Stiff 3x12. Abdutora 3x15. Panturrilha leg press 4x15. Panturrilha maquina 3x20. Prancha canoa 3x30-40seg. REGENERATIVO: Eliptico leve 20min. Alongamento ombros 3x30seg. Alongamento quadril 3x30seg. Prancha 3x30seg. Remada leve 2x15. Desenvolvimento leve 2x15. Rosca leve 2x15. DIETA ACADEMIA: 6h10 3 ovos 2 pao integral fruta cafe gelado 520kcal. 10h 2 ovos fruta. 12h30 frango 200g arroz integral 150g salada. 15h30 carne moida 100g ovo fruta. 19h30 frango ou carne 200g arroz 150g salada. 2800kcal 165g proteina. DIETA JIUJITSU: cafe manha normal. 18h PRE-JIU frango 150g arroz branco 80g SEM fibras gordura. 22h pos carne moida 200g 2 ovos arroz 100g. DIETA REGENERATIVO: normal porcoes menores. AGUA: 4L dia 4.5L jiujitsu. GOSTA: frango carne moida ovo alface tomate pao integral abacaxi melancia uva cafe gelado limao. NAO GOSTA NUNCA: cebola pepino beterraba legumes. REGRAS: portugues direto maximo 3 sugestoes. nunca antes 5h. nunca alimento que nao gosta. apos jiujitsu regenerativo. sem culpa se pular. comemore evolucoes.";
-
-var S = JSON.parse(localStorage.getItem('fa') || '{"agua":0,"bio":[]}');
-var hist = [];
-
-function shpg(n,btn) {
-  var pgs = document.querySelectorAll('.pg');
-  for(var i=0;i<pgs.length;i++) pgs[i].classList.remove('on');
-  var nbs = document.querySelectorAll('.nb');
-  for(var i=0;i<nbs.length;i++) nbs[i].classList.remove('on');
-  document.getElementById('pg-'+n).classList.add('on');
-  if(btn) btn.classList.add('on');
-  if(n==='chat') { chkKey(); scrollC(); }
-}
-
-var TR = {
-  regen:[['Elíptico leve','20min'],['Alongamento ombros','3x30seg'],['Alongamento quadril','3x30seg'],['Prancha isométrica','3x30seg'],['Remada leve','2x15'],['Desenvolvimento leve','2x15'],['Rosca leve','2x15']],
-  A:[['Supino reto com halteres','4x8-10'],['Supino inclinado com halteres','4x12-15'],['Crucifixo com halteres','3x12'],['Crucifixo inclinado','4x15'],['Tríceps testa com halteres','4x8-10'],['Tríceps francês com halteres','4x8-12'],['Tríceps coice no banco','4x12']],
-  B:[['Remada unilateral com halter','3x15'],['Remada fechada banco inclinado','4x8-10'],['Remada curvada com halteres','4x15'],['Pullover com halter','3x15'],['Puxada frontal máquina','3x12'],['Rosca direta com halteres','3x15'],['Rosca martelo','4x8-10'],['Rosca alternada','4x15'],['Rosca concentrada','3x8-12'],['Rosca 21 com halteres','3x21']],
-  C:[['Desenvolvimento sentado pegada neutra','4x8'],['Elevação lateral com halteres','3x8-12'],['Desenvolvimento com halteres','3x15'],['Elevação frontal','3x12'],['Encolhimento trapézio','3x15'],['Rosca alternada','4x15'],['Rosca martelo','4x8-10'],['Rosca concentrada','3x12']],
-  D:[['Leg press 45°','4x8-10'],['Leg press pés afastados','4x8-10'],['Extensora','3x15'],['Extensora isométrica','5x20seg'],['Flexora deitada','3x8-10'],['Mesa flexora sentada','3x8-10'],['Stiff com halteres','3x12'],['Abdutora','3x15'],['Panturrilha leg press','4x15'],['Panturrilha máquina','3x20'],['Prancha canoa','3x30-40seg']]
-};
-
-function selT(el,k) {
-  var els = document.querySelectorAll('.tt');
-  for(var i=0;i<els.length;i++) els[i].classList.remove('on');
-  el.classList.add('on');
-  rndT(k);
-}
-
-function rndT(k) {
-  var c = document.getElementById('tcont');
-  c.innerHTML = '';
-  var exs = TR[k];
-  for(var i=0;i<exs.length;i++) {
-    var d = document.createElement('div');
-    d.className = 'ex';
-    var n = document.createElement('span');
-    n.textContent = exs[i][0];
-    var s = document.createElement('span');
-    s.className = 'es';
-    s.textContent = exs[i][1];
-    d.appendChild(n);
-    d.appendChild(s);
-    c.appendChild(d);
-  }
-}
-rndT('regen');
-
-function jiuChange() {
-  var c = document.getElementById('jiu').checked;
-  var l = document.getElementById('jiulbl');
-  l.textContent = c ? 'Sim! 🥋' : 'Não';
-  l.style.color = c ? 'var(--ok)' : 'var(--mu)';
-}
-
-var DT = {
-  ac:[
-    ['05:00','⏰ Academia em jejum total — sem comer nada antes',''],
-    ['06:10','☕ Café da manhã: 3 ovos, 2 fatias pão integral, fruta, café gelado com limão','520kcal · 35g proteína'],
-    ['10:00','🥚 Lanche: 2 ovos cozidos + fruta','220kcal · 16g proteína'],
-    ['12:30','🍗 Almoço: Frango grelhado 200g, arroz integral 150g, alface, tomate, azeite','700kcal · 60g proteína'],
-    ['15:30','🥩 Lanche: Carne moída 100g, 1 ovo, fruta','300kcal · 24g proteína'],
-    ['19:30','🍽️ Jantar: Frango ou carne moída 200g, arroz integral 150g, salada','680kcal · 58g proteína'],
-    ['Total','Meta do dia','2800kcal · 165g proteína']
-  ],
-  jiu:[
-    ['07:00','☕ Café da manhã: 3 ovos, pão integral, fruta, café gelado',''],
-    ['10:00','🥚 Lanche: 2 ovos + fruta',''],
-    ['12:30','🍗 Almoço: Frango 200g, arroz, salada',''],
-    ['15:30','🥩 Lanche: Carne moída 100g, 2 ovos, fruta',''],
-    ['18:00','⚡ Pré-jiujitsu LEVE: Frango 150g, arroz branco 80g — SEM fibras, SEM gordura','Não comer pesado! Treina às 20h'],
-    ['22:00','🌙 Pós-jiujitsu: Carne moída 200g, 2 ovos, arroz 100g, 500ml água',''],
-    ['Água','💧 Meta aumentada','4,5 litros (18 copos)']
-  ],
-  reg:[
-    ['06:10','☕ Café da manhã: 3 ovos, pão integral, fruta, café gelado, 500ml água',''],
-    ['10:00','🥚 Lanche: 2 ovos + fruta',''],
-    ['12:30','🍗 Almoço: Frango ou carne 200g, arroz, salada',''],
-    ['15:30','🥩 Lanche: 2 ovos + fruta',''],
-    ['19:30','🌙 Jantar leve: Frango 180g, arroz 120g, salada','']
-  ]
-};
-
-function selD(el,k) {
-  var els = document.querySelectorAll('.dt');
-  for(var i=0;i<els.length;i++) els[i].classList.remove('on');
-  el.classList.add('on');
-  rndD(k);
-}
-
-function rndD(k) {
-  var c = document.getElementById('dcont');
-  c.innerHTML = '';
-  var rs = DT[k];
-  for(var i=0;i<rs.length;i++) {
-    var d = document.createElement('div');
-    d.className = 'card';
-    var h = document.createElement('div');
-    h.className = 'rh';
-    h.textContent = rs[i][0];
-    var desc = document.createElement('div');
-    desc.className = 'rd';
-    desc.textContent = rs[i][1];
-    d.appendChild(h);
-    d.appendChild(desc);
-    if(rs[i][2]) {
-      var k2 = document.createElement('div');
-      k2.className = 'rk';
-      k2.textContent = rs[i][2];
-      d.appendChild(k2);
-    }
-    c.appendChild(d);
-  }
-}
-rndD('ac');
-
-function ag(n) { S.agua = Math.max(0,(S.agua||0)+n); sv(); rndA(); }
-function agReset() { S.agua=0; sv(); rndA(); }
-function rndA() {
-  var c = S.agua||0;
-  document.getElementById('anum').textContent = c;
-  document.getElementById('apf').style.width = Math.min(c/16*100,100)+'%';
-  document.getElementById('alit').textContent = (c*0.25).toFixed(2)+'L';
-}
-rndA();
-
-function saveBio() {
-  var entry = {
-    date: new Date().toLocaleDateString('pt-BR'),
-    peso: parseFloat(document.getElementById('bp').value)||null,
-    gord: parseFloat(document.getElementById('bg').value)||null,
-    musc: parseFloat(document.getElementById('bm').value)||null,
-    agua: parseFloat(document.getElementById('ba').value)||null,
-    imc: parseFloat(document.getElementById('bi').value)||null,
-    visc: parseFloat(document.getElementById('bv').value)||null
-  };
-  if(!entry.peso){alert('Informe pelo menos o peso.');return}
-  S.bio.unshift(entry); sv(); rndBio();
-  var ids=['bp','bg','bm','ba','bi','bv'];
-  for(var i=0;i<ids.length;i++) document.getElementById(ids[i]).value='';
-}
-
-function rndBio() {
-  var bio = S.bio||[];
-  var c = document.getElementById('bhist');
-  c.innerHTML='';
-  if(!bio.length) {
-    var d=document.createElement('div');
-    d.className='card';
-    d.style.color='var(--mu)';
-    d.style.textAlign='center';
-    d.textContent='Nenhum registro ainda';
-    c.appendChild(d);
-    return;
-  }
-  var campos=[
-    {k:'peso',l:'Peso',f:function(v){return v+'kg'},lb:true},
-    {k:'gord',l:'% Gordura',f:function(v){return v+'%'},lb:true},
-    {k:'musc',l:'% Músculo',f:function(v){return v+'%'},lb:false},
-    {k:'agua',l:'% Água',f:function(v){return v+'%'},lb:false},
     {k:'imc',l:'IMC',f:function(v){return v+''},lb:true},
     {k:'visc',l:'Gord.Visc.',f:function(v){return v+''},lb:true}
   ];
@@ -682,6 +498,14 @@ function chatClr() {
 function ckd(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();csend()} }
 function car(el) { el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,120)+'px'; }
 function sv() { localStorage.setItem('fa',JSON.stringify(S)); }
+</script>
+
+<script>
+if('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/plano-fit/sw.js');
+  });
+}
 </script>
 </body>
 </html>
